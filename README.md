@@ -26,3 +26,11 @@ A entrega deve ser realizada em um repositório do Github com um print do modelo
 ![individual](https://user-images.githubusercontent.com/113737080/222011027-45a58d90-29b7-41a5-b9ce-f1d246a606c4.png)
 
 
+🔧 Tecnologias utilizadas
+🐬 MySQL Workbench - MySQL
+
+🤝 Colaboradores
+👩🏻‍💻 Trabalho autoral de Carolina Rocha
+
+🎯 Status do projeto
+Projeto finalizado.
