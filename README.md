@@ -13,6 +13,7 @@ Quanto às respostas das perguntas:
 
 
 Sim. No modelo criado para a solução deste minimundo, foram criadas também as entidades:
+
 • "Unidade", referente à unidade escolar que irá aplicar os cursos;
 • "Matrícula", referente ao código de cada aluno;
 • "Professores", referente ao professor que irá ministrar as aulas.
@@ -20,15 +21,15 @@ Sim. No modelo criado para a solução deste minimundo, foram criadas também as
 <strong>2) Quais são os principais campos e tipos?</strong>
 
 
-• Entidade Unidade(id int primary key auto_increment, nome varchar(100) not null, email varchar(100) not null, telefone varchar(11) not null);
+• Entidade Unidade(id int primary key auto_increment, endereco varchar(45) not null;
 
-• Entidade Professor(id int primary key auto_increment, nome varchar(100) not null, graduacao varchar(100) not null, email varchar(100) not null, cpf varchar(11) not null);
+• Entidade Professor(id int primary key auto_increment, nome varchar(45) not null;
 
-• Entidade Aluno( id int primary key auto_increment, nome varchar(100) not null, matricula varchar(5) not null, email varchar(100) not null, cpf varchar(11) not null, data_nascimento date not null);
+• Entidade Aluno( id int primary key auto_increment, nome varchar(45) not null;
 
-• Entidade Curso(id int primary key auto_increment, nome varchar(100) not null, carga_horaria_total int not null, disciplina_id int not null);
+• Entidade Curso(id int primary key auto_increment, nome varchar(45) not null;
 
-• Entidade Turma(id int primary key auto_increment, nome varchar(100) not null, data_inicio date not null, data_fim date not null, professor_id int not null, curso_id int not null);
+• Entidade Turma(id int primary key auto_increment, codigo varchar(45) not null;
 
 • Entidade Matrícula(id int primary key auto_increment, nome varchar(45) not null;
 
