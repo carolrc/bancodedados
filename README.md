@@ -22,8 +22,6 @@ Sim. No modelo criado para a solução deste minimundo, foram criadas também as
 
 • Entidade Aluno( id int primary key auto_increment, nome varchar(100) not null, matricula varchar(5) not null, email varchar(100) not null, cpf varchar(11) not null, data_nascimento date not null);
 
-• Entidade Disciplina( id int primary key auto_increment, nome varchar(100) not null, carga_horaria int not null, professor_id int not null);
-
 • Entidade Curso(id int primary key auto_increment, nome varchar(100) not null, carga_horaria_total int not null, disciplina_id int not null);
 
 • Entidade Turma(id int primary key auto_increment, nome varchar(100) not null, data_inicio date not null, data_fim date not null, professor_id int not null, curso_id int not null);
