@@ -6,19 +6,27 @@ A Resilia está pensando em lançar um novo sistema de acompanhamento e para iss
 O que é para fazer?
 Para apoiar nesse sistema recebemos a tarefa de realizar essa modelagem e responder algumas perguntas com nosso modelo:
 
-Existem outras entidades além dessas três?
-Foi adicionada a entidade Professores e Unidade
+📑 Resoluções
+Quanto às respostas das perguntas:
 
-Quais são os principais campos e tipos?
-Os principais campos são os de ID
+1) Existem outras entidades além dessas três?
+Sim. No modelo criado para a solução deste minimundo, foram criadas também as entidades:
+• "Unidade", referente à unidade escolar que irá aplicar os cursos;
+• "Matrícula", referente ao código de cada aluno;
+• "Professores", referente ao professor que irá ministrar as aulas.
 
-Como essas entidades estão relacionadas?
-Utilizando chaves estrangeiras (FK).
+2) Quais são os principais campos e tipos?
+• Entidade Unidade(id int primary key auto_increment, nome varchar(100) not null, email varchar(100) not null, telefone varchar(11) not null);
 
-Vamos tentar pensar em 2 registros para cada entidade para checar o preenchimento das informações no nosso modelo.
+• Entidade Professor(id int primary key auto_increment, nome varchar(100) not null, graduacao varchar(100) not null, email varchar(100) not null, cpf varchar(11) not null);
 
-O que devo entregar?
-A entrega deve ser realizada em um repositório do Github com um print do modelo proposto e um arquivo README respondendo as perguntas anteriores e apontando para os detalhes da modelagem proposta.
+• Entidade Aluno( id int primary key auto_increment, nome varchar(100) not null, matricula varchar(5) not null, email varchar(100) not null, cpf varchar(11) not null, data_nascimento date not null);
+
+• Entidade Disciplina( id int primary key auto_increment, nome varchar(100) not null, carga_horaria int not null, professor_id int not null);
+
+• Entidade Curso(id int primary key auto_increment, nome varchar(100) not null, carga_horaria_total int not null, disciplina_id int not null);
+
+• Entidade Turma(id int primary key auto_increment, nome varchar(100) not null, data_inicio date not null, data_fim date not null, professor_id int not null, curso_id int not null);
 
 
 
