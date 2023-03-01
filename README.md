@@ -9,13 +9,15 @@ Para apoiar nesse sistema recebemos a tarefa de realizar essa modelagem e respon
 📑 Resoluções
 Quanto às respostas das perguntas:
 
-1) Existem outras entidades além dessas três?
+<strong>1) Existem outras entidades além dessas três?</strong>
+
+
 Sim. No modelo criado para a solução deste minimundo, foram criadas também as entidades:
 • "Unidade", referente à unidade escolar que irá aplicar os cursos;
 • "Matrícula", referente ao código de cada aluno;
 • "Professores", referente ao professor que irá ministrar as aulas.
 
-2) Quais são os principais campos e tipos?
+<strong>2) Quais são os principais campos e tipos?</strong>
 
 
 • Entidade Unidade(id int primary key auto_increment, nome varchar(100) not null, email varchar(100) not null, telefone varchar(11) not null);
@@ -30,7 +32,8 @@ Sim. No modelo criado para a solução deste minimundo, foram criadas também as
 
 • Entidade Matrícula(id int primary key auto_increment, nome varchar(45) not null;
 
-3) Como essas entidades estão relacionadas?
+<strong>3) Como essas entidades estão relacionadas?</strong>
+
 
 Cardinalidade:
 
@@ -44,12 +47,18 @@ Turma pertence a um e somente um curso;
 
 Turma contém um ou vários alunos;
 
-Alunos contém um ou vários cursos
+Turma contém um professor;
 
-Alunos contém uma Matrícula
+Alunos contém um ou vários cursos;
+
+Alunos contém uma Matrícula.
+
+
 
 
 ![individual](https://user-images.githubusercontent.com/113737080/222011027-45a58d90-29b7-41a5-b9ce-f1d246a606c4.png)
+
+
 
 
 🔧 Tecnologias utilizadas
