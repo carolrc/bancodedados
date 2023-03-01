@@ -16,6 +16,8 @@ Sim. No modelo criado para a solução deste minimundo, foram criadas também as
 • "Professores", referente ao professor que irá ministrar as aulas.
 
 2) Quais são os principais campos e tipos?
+
+
 • Entidade Unidade(id int primary key auto_increment, nome varchar(100) not null, email varchar(100) not null, telefone varchar(11) not null);
 
 • Entidade Professor(id int primary key auto_increment, nome varchar(100) not null, graduacao varchar(100) not null, email varchar(100) not null, cpf varchar(11) not null);
@@ -26,7 +28,7 @@ Sim. No modelo criado para a solução deste minimundo, foram criadas também as
 
 • Entidade Turma(id int primary key auto_increment, nome varchar(100) not null, data_inicio date not null, data_fim date not null, professor_id int not null, curso_id int not null);
 
-
+• Entidade Matrícula(id int primary key auto_increment, nome varchar(100) not null, email varchar(100) not null, telefone varchar(11) not null);
 
 
 ![individual](https://user-images.githubusercontent.com/113737080/222011027-45a58d90-29b7-41a5-b9ce-f1d246a606c4.png)
