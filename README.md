@@ -30,6 +30,24 @@ Sim. No modelo criado para a solução deste minimundo, foram criadas também as
 
 • Entidade Matrícula(id int primary key auto_increment, nome varchar(45) not null;
 
+3) Como essas entidades estão relacionadas?
+
+Cardinalidade:
+
+Unidade pode fornecer um ou vários cursos;
+
+Curso pertence a um e somente uma Unidade;
+
+Curso pode produzir uma ou várias turmas;
+
+Turma pertence a um e somente um curso;
+
+Turma contém um ou vários alunos;
+
+Alunos contém um ou vários cursos
+
+Alunos contém uma Matrícula
+
 
 ![individual](https://user-images.githubusercontent.com/113737080/222011027-45a58d90-29b7-41a5-b9ce-f1d246a606c4.png)
 
