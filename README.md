@@ -31,7 +31,7 @@ Sim. No modelo criado para a solução deste minimundo, foram criadas também as
 
 • Entidade Turma(id int primary key auto_increment, int not null;
 
-• Entidade Matrícula(id int primary key auto_increment, nome varchar(100) not null;
+• Entidade Matrícula(id int primary key auto_increment.
 
 <strong>3) Como essas entidades estão relacionadas?</strong>
 
