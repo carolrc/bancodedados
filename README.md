@@ -21,17 +21,17 @@ Sim. No modelo criado para a solução deste minimundo, foram criadas também as
 <strong>2) Quais são os principais campos e tipos?</strong>
 
 
-• Entidade Unidade(id int primary key auto_increment, endereco varchar(45) not null;
+• Entidade Unidade(id int primary key auto_increment, endereco varchar(200) not null;
 
-• Entidade Professor(id int primary key auto_increment, nome varchar(45) not null;
+• Entidade Professor(id int primary key auto_increment, nome varchar(100) not null;
 
-• Entidade Aluno( id int primary key auto_increment, nome varchar(45) not null;
+• Entidade Aluno( id int primary key auto_increment, nome varchar(100) not null;
 
-• Entidade Curso(id int primary key auto_increment, nome varchar(45) not null;
+• Entidade Curso(id int primary key auto_increment, nome varchar(100) not null;
 
-• Entidade Turma(id int primary key auto_increment, codigo varchar(45) not null;
+• Entidade Turma(id int primary key auto_increment, int not null;
 
-• Entidade Matrícula(id int primary key auto_increment, nome varchar(45) not null;
+• Entidade Matrícula(id int primary key auto_increment, nome varchar(100) not null;
 
 <strong>3) Como essas entidades estão relacionadas?</strong>
 
@@ -56,8 +56,8 @@ Alunos contém uma Matrícula.
 
 
 
+![individual4](https://user-images.githubusercontent.com/113737080/222295059-f308f463-d067-4615-8e93-58d2201a3f02.png)
 
-![individual](https://user-images.githubusercontent.com/113737080/222011027-45a58d90-29b7-41a5-b9ce-f1d246a606c4.png)
 
 
 
