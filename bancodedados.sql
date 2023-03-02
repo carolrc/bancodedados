@@ -5,99 +5,98 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema bancodedados
+-- Schema mydb
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema bancodedados
+-- Schema mydb
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `bancodedados` DEFAULT CHARACTER SET utf8 ;
-USE `bancodedados` ;
+CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
+USE `mydb` ;
 
 -- -----------------------------------------------------
--- Table `bancodedados`.`Unidade`
+-- Table `mydb`.`Unidade`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `bancodedados`.`Unidade` (
+CREATE TABLE IF NOT EXISTS `mydb`.`Unidade` (
   `idUnidade` INT NOT NULL AUTO_INCREMENT,
-  `endereço_unidade` VARCHAR(45) NULL,
-  PRIMARY KEY (`idUnidade`))
+  `endereco_unidade` VARCHAR(200) NOT NULL,
+  PRIMARY KEY (`idUnidade`, `endereco_unidade`))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `bancodedados`.`Cursos`
+-- Table `mydb`.`Cursos`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `bancodedados`.`Cursos` (
+CREATE TABLE IF NOT EXISTS `mydb`.`Cursos` (
   `idCursos` INT NOT NULL AUTO_INCREMENT,
-  `nome_curso` VARCHAR(45) NULL,
+  `nome_curso` VARCHAR(100) NULL,
   PRIMARY KEY (`idCursos`),
   CONSTRAINT `fk_Cursos_Unidade1`
     FOREIGN KEY (`idCursos`)
-    REFERENCES `bancodedados`.`Unidade` (`idUnidade`)
+    REFERENCES `mydb`.`Unidade` (`idUnidade`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `bancodedados`.`Turmas`
+-- Table `mydb`.`Turmas`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `bancodedados`.`Turmas` (
+CREATE TABLE IF NOT EXISTS `mydb`.`Turmas` (
   `idTurmas` INT NOT NULL AUTO_INCREMENT,
-  `codigo` VARCHAR(45) NULL,
+  `codigo` INT NULL,
   PRIMARY KEY (`idTurmas`),
   CONSTRAINT `fk_Turmas_Cursos1`
     FOREIGN KEY (`idTurmas`)
-    REFERENCES `bancodedados`.`Cursos` (`idCursos`)
+    REFERENCES `mydb`.`Cursos` (`idCursos`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `bancodedados`.`Matricula`
+-- Table `mydb`.`Matricula`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `bancodedados`.`Matricula` (
+CREATE TABLE IF NOT EXISTS `mydb`.`Matricula` (
   `idMatricula` INT NOT NULL AUTO_INCREMENT,
-  `nome_aluno` VARCHAR(45) NULL,
   PRIMARY KEY (`idMatricula`))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `bancodedados`.`Alunos`
+-- Table `mydb`.`Alunos`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `bancodedados`.`Alunos` (
+CREATE TABLE IF NOT EXISTS `mydb`.`Alunos` (
   `idAlunos` INT NOT NULL AUTO_INCREMENT,
-  `nome_aluno` VARCHAR(45) NULL,
+  `nome_aluno` VARCHAR(100) NULL,
   `Matricula_idMatricula` INT NOT NULL,
   PRIMARY KEY (`idAlunos`, `Matricula_idMatricula`),
-  INDEX `fk_Alunos_Matricula1_idx` (`Matricula_idMatricula` ASC) VISIBLE,
-  CONSTRAINT `fk_Alunos_Turmas1`
-    FOREIGN KEY (`idAlunos`)
-    REFERENCES `bancodedados`.`Turmas` (`idTurmas`)
+  INDEX `fk_Alunos_Matricula_idx` (`Matricula_idMatricula` ASC) VISIBLE,
+  CONSTRAINT `fk_Alunos_Matricula`
+    FOREIGN KEY (`Matricula_idMatricula`)
+    REFERENCES `mydb`.`Matricula` (`idMatricula`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Alunos_Matricula1`
-    FOREIGN KEY (`Matricula_idMatricula`)
-    REFERENCES `bancodedados`.`Matricula` (`idMatricula`)
+  CONSTRAINT `fk_Alunos_Turmas1`
+    FOREIGN KEY (`idAlunos`)
+    REFERENCES `mydb`.`Turmas` (`idTurmas`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `bancodedados`.`Professores`
+-- Table `mydb`.`Professores`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `bancodedados`.`Professores` (
+CREATE TABLE IF NOT EXISTS `mydb`.`Professores` (
   `idProfessores` INT NOT NULL AUTO_INCREMENT,
-  `nome_professor` VARCHAR(45) NULL,
+  `nome_professor` VARCHAR(100) NULL,
   `Turmas_idTurmas` INT NOT NULL,
   PRIMARY KEY (`idProfessores`, `Turmas_idTurmas`),
   INDEX `fk_Professores_Turmas1_idx` (`Turmas_idTurmas` ASC) VISIBLE,
   CONSTRAINT `fk_Professores_Turmas1`
     FOREIGN KEY (`Turmas_idTurmas`)
-    REFERENCES `bancodedados`.`Turmas` (`idTurmas`)
+    REFERENCES `mydb`.`Turmas` (`idTurmas`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
